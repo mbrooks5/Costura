@@ -15,9 +15,9 @@ partial class ModuleWeaver
             .SelectMany(r => r.FixedGetResourceData())
             .ToArray();
 
-        using (var md5 = MD5.Create())
+        using (var sha1 = SHA1.Create())
         {
-            var hashBytes = md5.ComputeHash(data);
+            var hashBytes = sha1.ComputeHash(data);
 
             var sb = new StringBuilder();
             for (var i = 0; i < hashBytes.Length; i++)
